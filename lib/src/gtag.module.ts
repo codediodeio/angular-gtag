@@ -12,15 +12,12 @@ import { GtagConfig } from './interfaces';
 })
 export class GtagModule {
   public static forRoot(config: GtagConfig): ModuleWithProviders {
-    const defaults = {
-      trackPageviews: true
-    };
-
-    config = { ...defaults, ...config };
-
     return {
       ngModule: GtagModule,
-      providers: [Gtag, { provide: 'config', useValue: config }]
+      providers: [
+        Gtag,
+        { provide: 'config', useValue: { trackPageviews: true, ...config } }
+      ]
     };
   }
 }

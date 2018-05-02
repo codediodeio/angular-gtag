@@ -26,7 +26,6 @@ export class GtagEventDirective implements AfterViewInit {
   ngAfterViewInit() {
     try {
       this.renderer.listen(this.el.nativeElement, this.trackOn, () => {
-        console.log(this.trackOn);
         this.gtag.event(this.action || this.trackOn, {
           event_category: this.category,
           ...this.params

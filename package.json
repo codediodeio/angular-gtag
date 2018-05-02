@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "jasmine-ts \"lib/spec/**/*.spec.ts\"",
-    "build:lib": "ng-packagr -p lib/package.json"
+    "build:lib": "ng-packagr -p lib/package.json",
+    "publish": "npm publish lib/dist"
   },
   "private": true,
   "dependencies": {

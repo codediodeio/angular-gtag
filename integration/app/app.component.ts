@@ -9,5 +9,7 @@ import { Gtag } from 'angular-gtag';
 export class AppComponent {
   title = 'app';
 
-  constructor(private gtag: Gtag) {}
+  constructor(private gtag: Gtag) {
+    gtag.event('init', { event_label: 'App Init'});
+  }
 }

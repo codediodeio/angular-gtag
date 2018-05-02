@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { GoogleAnalyticsModule } from 'angular-gtag';
+import { GtagModule } from 'angular-gtag';
 import { PageComponent } from './page/page.component';
 
 
@@ -17,7 +17,7 @@ import { PageComponent } from './page/page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GoogleAnalyticsModule.forRoot({trackingId: 'UA-59099331-15'})
+    GtagModule.forRoot({trackingId: 'UA-59099331-15'})
   ],
   providers: [],
   bootstrap: [AppComponent]

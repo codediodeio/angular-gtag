@@ -2,4 +2,14 @@
 <a routerLink="test">Route 1</a>
 <a routerLink="deeply/nested/path/test">Route 2</a>
 
+<div class="box" gtagEvent draggable="true"
+    trackOn="dragstart" 
+    action="product_dragged"
+    category="ecommerce" 
+    [params]="{ event_label: 'Something cool just happened' }">
+
+   Some Product
+   
+</div>
+
 <router-outlet></router-outlet>

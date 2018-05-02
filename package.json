@@ -6,9 +6,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "test": "jasmine-ts \"lib/spec/**/*.spec.ts\"",
     "build:lib": "ng-packagr -p lib/package.json"
   },
   "private": true,
@@ -37,6 +37,7 @@
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
+    "jasmine-ts": "^0.2.1",
     "karma": "~2.0.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "^1.2.1",

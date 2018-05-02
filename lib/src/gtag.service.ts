@@ -45,10 +45,6 @@ export class Gtag {
     }
   }
 
-  screenView(params) {
-
-  }
-
   config(params: any) {
     try {
       gtag('config', this.gaConfig.trackingId, (params = {}));

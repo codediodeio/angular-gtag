@@ -1,13 +1,14 @@
 {
   "name": "myapp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --prod --stats-json",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "analyze": "webpack-bundle-analyzer dist/stats.json",
     "test": "jasmine-ts \"lib/spec/**/*.spec.ts\"",
     "build:lib": "ng-packagr -p lib/package.json",
     "publish": "npm publish lib/dist"
@@ -48,6 +49,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "~2.5.3",
+    "webpack-bundle-analyzer": "^2.11.1"
   }
 }

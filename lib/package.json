@@ -1,25 +1,25 @@
 {
-  "name": "angular-gtag",
-  "version": "1.0.2",
-  "author": "Jeff Delaney <hello@angularfirebase.com>",
-  "repository": "https://github.com/codediodeio/angular-gtag",
-  "license": "MIT",
-  "private": false,
-  "peerDependencies": {
-    "@angular/core": ">=5.0.0",
-    "@angular/common": ">=5.0.0",
-    "@angular/router": ">=5.0.0"
-  },
-  "keywords": [
-    "angular",
-    "google analytics",
-    "gtag.js"
-  ],
-  "ngPackage": {
-    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
-    "lib": {
-      "entryFile": "public_api.ts"
+    "name": "angular-gtag",
+    "version": "1.0.3",
+    "author": "Jeff Delaney <hello@angularfirebase.com>",
+    "repository": "https://github.com/codediodeio/angular-gtag",
+    "license": "MIT",
+    "private": false,
+    "peerDependencies": {
+        "@angular/core": ">=5.0.0",
+        "@angular/common": ">=5.0.0",
+        "@angular/router": ">=5.0.0"
     },
-    "dest": "dist"
-  }
+    "keywords": [
+        "angular",
+        "google analytics",
+        "gtag.js"
+    ],
+    "ngPackage": {
+        "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+        "lib": {
+            "entryFile": "public_api.ts"
+        },
+        "dest": "dist"
+    }
 }

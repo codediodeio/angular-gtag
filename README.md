@@ -35,6 +35,12 @@ import { GtagModule } from 'angular-gtag';
 })
 ```
 
+**Options**
+
+- `trackingId: string (required)` Google Analytics UA tracking ID.
+- `trackPageviews: boolean` Default true.
+- `debug: boolean` Default false, console logs every gtag event/pageview.
+
 ## Pageviews
 
 The package will listen to route changes by default, you just need to instantiate service in the root of the project.

@@ -8,18 +8,16 @@ import { AppComponent } from './app.component';
 import { GtagModule } from 'angular-gtag';
 import { PageComponent } from './page/page.component';
 
+import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PageComponent
-  ],
+  declarations: [AppComponent, PageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GtagModule.forRoot({trackingId: 'UA-59099331-15'})
+    GtagModule.forRoot(environment.gaConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

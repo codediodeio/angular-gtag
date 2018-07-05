@@ -1,6 +1,6 @@
 # Angular gtag.js
 
-A simple Google Analytics [gtag.js](https://developers.google.com/analytics/devguides/collection/gtagjs/) package for Angular. 
+A simple Google Analytics [gtag.js](https://developers.google.com/analytics/devguides/collection/gtagjs/) package for Angular.
 
 ## Install
 
@@ -8,10 +8,11 @@ A simple Google Analytics [gtag.js](https://developers.google.com/analytics/devg
 npm install angular-gtag --save
 ```
 
-Add the the tracking code from GA admin dashboard to `index.html` and set *send_page_view* to false.
+Add the the tracking code from GA admin dashboard to `index.html` and set _send_page_view_ to false.
 
 ```html
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOUR_TRACKING_ID"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -22,7 +23,7 @@ Add the the tracking code from GA admin dashboard to `index.html` and set *send_
 </head>
 ```
 
-Add the package to to your `app.module.ts`. 
+Add the package to to your `app.module.ts`.
 
 ```ts
 import { GtagModule } from 'angular-gtag';
@@ -36,22 +37,22 @@ import { GtagModule } from 'angular-gtag';
 
 ## Pageviews
 
-The package will listen to route changes by default, you just need to instantiate service in the root of the project. 
+The package will listen to route changes by default, you just need to instantiate service in the root of the project.
 
 ```ts
 export class AppComponent {
-  constructor(gtag: Gtag) { }
+  constructor(gtag: Gtag) {}
 }
 ```
 
-Gtag is a serivce that also allows you to track pageviews manually. 
+Gtag is a serivce that also allows you to track pageviews manually.
 
 ```ts
 gtag.pageview();
 
 // or with custom params
 
-gtag.pageview({ 
+gtag.pageview({
   page_title: 'Lesson Feed',
   page_path: '/lessons',
   page_location: 'https://angularfirebase.com/lessons'
@@ -60,27 +61,25 @@ gtag.pageview({
 
 ## Events
 
-[Events](https://developers.google.com/analytics/devguides/collection/gtagjs/events) expect an action. 
+[Events](https://developers.google.com/analytics/devguides/collection/gtagjs/events) expect an action.
 
 ```ts
-gtag.event('view_promotion')
+gtag.event('view_promotion');
 ```
 
 You can optionally pass in addtional params.
 
-
 ```ts
-gtag.event('login', { 
+gtag.event('login', {
   method: 'Instagram',
   event_category: 'engagemnt',
   event_label: 'New user logged in via OAuth'
 });
 ```
 
-
 ## Event Directive
 
-Many analytics events are tracked based on user interaction, such as button clicks. Just tell it which DOM event to track.  
+Many analytics events are tracked based on user interaction, such as button clicks. Just tell it which DOM event to track.
 
 ```html
 <button gtagEvent trackOn="click">Track Me</button>
@@ -94,15 +93,15 @@ You can pass optional params to the directive like so:
 
 ```html
 <div gtagEvent
-     trackOn="dragstart" 
+     trackOn="dragstart"
      action="product_dragged"
-     category="ecommerce" 
+     category="ecommerce"
      [params]="{ event_label: 'Something cool just happened' }">
 
    Some Product...
-   
+
 </div>
 ```
 
-The directive will produce the following event on dragstart. 
+The directive will produce the following event on dragstart.
 ![](https://firebasestorage.googleapis.com/v0/b/firestarter-96e46.appspot.com/o/assets%2Fevent-gtag2.png?alt=media&token=213e2c60-6892-42a9-ac21-e828114e423a)

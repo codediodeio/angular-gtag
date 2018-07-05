@@ -9,6 +9,7 @@
 /lib/dist
 /lib/dist.tgz
 /lib/node_modules
+integration/dist
 
 # dependencies
 /node_modules

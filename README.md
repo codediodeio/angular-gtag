@@ -111,3 +111,6 @@ You can pass optional params to the directive like so:
 
 The directive will produce the following event on dragstart.
 ![](https://firebasestorage.googleapis.com/v0/b/firestarter-96e46.appspot.com/o/assets%2Fevent-gtag2.png?alt=media&token=213e2c60-6892-42a9-ac21-e828114e423a)
+
+# Related Projects
++ [analytics-angular](https://github.com/segmentio/analytics-angular): Write analytics code once, collect customer data from any source, and send it to over 250+ destinations with [Segment](https://segment.com/).

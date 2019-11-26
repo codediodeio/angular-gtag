@@ -55,6 +55,14 @@ export class Gtag {
     }
   }
 
+  set(params: any) {
+    try {
+      gtag('set', (params = {}));
+    } catch (err) {
+      console.error('Google Analytics set error', err);
+    }
+  }
+
   private debug(...msg) {
     if (this.mergedConfig.debug) {
       console.log('angular-gtag:', ...msg);

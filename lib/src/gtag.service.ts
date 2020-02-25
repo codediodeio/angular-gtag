@@ -47,17 +47,17 @@ export class Gtag {
     }
   }
 
-  config(params: any) {
+  config(params: any = {}) {
     try {
-      gtag('config', this.mergedConfig.trackingId, (params = {}));
+      gtag('config', this.mergedConfig.trackingId, params);
     } catch (err) {
       console.error('Google Analytics config error', err);
     }
   }
 
-  set(params: any) {
+  set(params: any = {}) {
     try {
-      gtag('set', (params = {}));
+      gtag('set', params);
     } catch (err) {
       console.error('Google Analytics set error', err);
     }

@@ -7,6 +7,8 @@ declare var gtag: any;
 @Injectable()
 export class Gtag {
   private mergedConfig: GtagConfig;
+  private userId: string;
+
   constructor(@Inject('config') gaConfig: GtagConfig, private router: Router) {
     this.mergedConfig = { trackPageviews: true, ...gaConfig };
     if (this.mergedConfig.trackPageviews) {
@@ -36,7 +38,8 @@ export class Gtag {
       const defaults = {
         page_path: this.router.url,
         page_title: 'Angular App',
-        page_location: window.location.href
+        page_location: window.location.href,
+        user_id: this.userId
       };
 
       params = { ...defaults, ...params };
@@ -47,20 +50,25 @@ export class Gtag {
     }
   }
 
-  config(params: any) {
+  config(params: any = {}) {
     try {
-      gtag('config', this.mergedConfig.trackingId, (params = {}));
+      gtag('config', this.mergedConfig.trackingId, params);
     } catch (err) {
       console.error('Google Analytics config error', err);
     }
   }
 
-  set(params: any) {
+  set(params: any = {}) {
     try {
-      gtag('set', (params = {}));
+      gtag('set', params);
     } catch (err) {
       console.error('Google Analytics set error', err);
     }
+  }
+
+  setUserId(userId: string) {
+    this.userId = userId;
+    this.config({user_id: userId});
   }
 
   private debug(...msg) {

@@ -1,15 +1,22 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { GtagPageview, GtagEvent, GtagConfig } from './interfaces';
 import { Router, NavigationEnd } from '@angular/router';
 import { tap, filter } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
 declare var gtag: any;
 
 @Injectable()
 export class Gtag {
   private mergedConfig: GtagConfig;
-  constructor(@Inject('config') gaConfig: GtagConfig, private router: Router) {
+  isBrowser: boolean;
+  constructor(
+    @Inject('config') gaConfig: GtagConfig, 
+    private router: Router, 
+    @Inject(PLATFORM_ID) platformId: string
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
     this.mergedConfig = { trackPageviews: true, ...gaConfig };
-    if (this.mergedConfig.trackPageviews) {
+    if (this.mergedConfig.trackPageviews && this.isBrowser) {
       router.events
         .pipe(
           filter(event => event instanceof NavigationEnd),
